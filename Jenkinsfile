@@ -2,12 +2,18 @@ pipeline{
     agent any
     stages{
         stage("test"){
+            when{
+                changeset "file1"
+            }
             steps{
                 sh ("uname")
                 echo "stage is sucess"
             }
         }
         stage("dev"){
+            when{
+                changeset "file1"
+            }
             steps{
                 sh("free")
                 sh("df -h")
